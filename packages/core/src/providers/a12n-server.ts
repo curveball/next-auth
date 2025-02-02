@@ -106,6 +106,5 @@ export interface A12nServerProfile extends Record<string, any> {
         issuer: config.issuer,
         clientId: config.clientId, 
         clientSecret: config.clientSecret, 
-        wellKnown: config.issuer + "/.well-known/oauth-authorization-server",
       }
   }
