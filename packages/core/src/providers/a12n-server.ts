@@ -1,6 +1,9 @@
 import type { Profile } from "../types.js"
-import type { CommonProviderOptions } from "./index.js"
-import { OAuthUserConfig } from "./oauth.js"
+import type {
+  CommonProviderOptions,
+  OIDCConfig,
+  OIDCUserConfig,
+} from "./index.js"
 /**
  * <div class="provider" style={{ display: "flex", justifyContent: "space-between", color: "#fff" }}>
  * <span>Built-in <b>a12n-server</b> integration.</span>
@@ -21,7 +24,7 @@ export interface A12nServerProfile
   /* The provider name used on the default sign-in page's sign-in button. */
   name: string
   token_type?: "bearer" | "refresh_token"
-  type: "oauth"
+  type: "oidc"
 }
 
 /**
@@ -29,9 +32,15 @@ export interface A12nServerProfile
  *
  * ### Setup
  *
+ * In `.env` create the following entries:
+ * ```
+ * A12N_CLIENT_ID=your-a12n-server-client-id
+ * A12N_CLIENT_SECRET= run npx auth secret
+ * ```
+ *
  * #### Callback URL
  * ```
- * https://example.com/api/auth/callback/a12n-server
+ * https://your-site-or-backend.com/api/auth/callback/a12n-server
  * ```
  *
  * #### Configuration
@@ -54,6 +63,7 @@ export interface A12nServerProfile
  *
  * - a12n-server [Overview](https://github.com/curveball/a12n-server/blob/main/docs/getting-started.md)
  * - Sign in with a12n-server [REST API]()
+ * - [How to add a new client to a12n-server]()
  * - [How to retrieve]() the user's information from your a12n-server
  * - [Learn more about OAuth](https://authjs.dev/concepts/oauth)
  * - [Creating the Client Secret]()
@@ -96,16 +106,15 @@ export interface A12nServerUserProfile
 }
 
 export default function a12n(
-  config: OAuthUserConfig<A12nServerProfile>
-): OAuthUserConfig<A12nServerUserProfile> {
+  config: OIDCConfig<A12nServerProfile>
+): OIDCUserConfig<A12nServerUserProfile> {
   return {
     id: "a12n-server",
     name: "a12n-server",
     issuer: config.issuer,
     clientId: config.clientId,
     clientSecret: config.clientSecret,
-    authorization: config.authorization,
-    userinfo: config.userinfo,
+    checks: ["pkce", "state", "none"],
     profile(profile) {
       return {
         ...profile,
