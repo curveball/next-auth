@@ -15,9 +15,6 @@ import type {
  * @module providers/a12n-server
  */
 
-/**
- * @module providers/a12n-server
- */
 export interface A12nServerProfile
   extends Record<keyof CommonProviderOptions, string> {
   id: string
@@ -35,8 +32,9 @@ export interface A12nServerProfile
  * In `.env` create the following entries:
  * {@link https://github.com/curveball/next-a12n?tab=readme-ov-file#environment-variables}
  * ```
- * AUTH_A12N_CLIENT_ID=
- * AUTH_A12N_CLIENT_SECRET=
+ * AUTH_A12N_ISSUER=
+ * AUTH_A12N_ID=
+ * AUTH_A12N_SECRET=
  * ```
  *
  * #### Callback URL
@@ -63,11 +61,10 @@ export interface A12nServerProfile
  * ### Resources
  *
  * - a12n-server [Overview](https://github.com/curveball/a12n-server/blob/main/docs/getting-started.md)
- * - Sign in with a12n-server [REST API]()
- * - [How to add a new client to a12n-server]()
- * - [How to retrieve]() the user's information from your a12n-server
+ * [Set up a12n-server](https://github.com/curveball/next-a12n/blob/main/README.md#setting-up-a12n-server)
+ * - [How to add a new client to a12n-server](https://github.com/curveball/next-a12n/tree/main?tab=readme-ov-file#register-a-new-client-side-web-app-on-curveballa12n-server)
+ * - [How to retrieve the user's information from your a12n-server](https://github.com/curveball/a12n-server/blob/main/docs/user-api.md)
  * - [Learn more about OAuth](https://authjs.dev/concepts/oauth)
- * - [Creating the Client Secret]()
  *
  * ### Notes
  *
