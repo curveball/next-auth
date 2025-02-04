@@ -33,9 +33,10 @@ export interface A12nServerProfile
  * ### Setup
  *
  * In `.env` create the following entries:
+ * {@link https://github.com/curveball/next-a12n?tab=readme-ov-file#environment-variables}
  * ```
- * A12N_CLIENT_ID=your-a12n-server-client-id
- * A12N_CLIENT_SECRET= run npx auth secret
+ * AUTH_A12N_CLIENT_ID=
+ * AUTH_A12N_CLIENT_SECRET=
  * ```
  *
  * #### Callback URL
@@ -52,8 +53,8 @@ export interface A12nServerProfile
  * const response = await Auth(request, {
  *   providers: [
  *     a12n({
- *     clientId: A12N_CLIENT_ID,
- *     clientSecret: A12N_CLIENT_SECRET
+ *     clientId: AUTH_A12N_ID,
+ *     clientSecret: AUTH_A12N_SECRET
  *    }),
  *   ]
  * })
@@ -114,7 +115,7 @@ export default function a12n(
     issuer: config.issuer,
     clientId: config.clientId,
     clientSecret: config.clientSecret,
-    checks: ["pkce", "state", "none"],
+    checks: ["pkce", "state", "nonce"],
     profile(profile) {
       return {
         ...profile,
