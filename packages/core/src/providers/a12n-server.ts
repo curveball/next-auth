@@ -64,7 +64,7 @@ export interface A12nServerProfile
  *
  * - a12n-server [Overview](https://github.com/curveball/a12n-server/blob/main/docs/getting-started.md)
  * - Sign in with a12n-server [REST API]()
- * - [How to add a new client to a12n-server]()
+ * - [How to add a new client to a12n-server](https://github.com/curveball/next-a12n/tree/main?tab=readme-ov-file#register-a-new-client-side-web-app-on-curveballa12n-server)
  * - [How to retrieve]() the user's information from your a12n-server
  * - [Learn more about OAuth](https://authjs.dev/concepts/oauth)
  * - [Creating the Client Secret]()
