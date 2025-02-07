@@ -35,8 +35,9 @@ export interface A12nServerProfile
  * In `.env` create the following entries:
  * {@link https://github.com/curveball/next-a12n?tab=readme-ov-file#environment-variables}
  * ```
- * AUTH_A12N_CLIENT_ID=
- * AUTH_A12N_CLIENT_SECRET=
+ * AUTH_A12N_ISSUER=
+ * AUTH_A12N_ID=
+ * AUTH_A12N_SECRET=
  * ```
  *
  * #### Callback URL
