@@ -15,9 +15,6 @@ import type {
  * @module providers/a12n-server
  */
 
-/**
- * @module providers/a12n-server
- */
 export interface A12nServerProfile
   extends Record<keyof CommonProviderOptions, string> {
   id: string
